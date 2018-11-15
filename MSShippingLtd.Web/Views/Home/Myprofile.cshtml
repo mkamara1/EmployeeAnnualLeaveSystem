@@ -1,0 +1,101 @@
+﻿@model MSShippingLtd.Web.Models.EmployeeViewModel
+@{
+
+    ViewBag.Title = "Myprofile";
+}
+
+<h2>My Profile</h2>
+
+
+
+<br />
+<br />
+<h3>Leave Summary</h3>
+<table class="table">
+    <tr>
+        <th>
+            Leave Entitlement:
+        </th>
+        <td>
+           @Html.DisplayFor(model => model.TotalLeavePerYear)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Leave Approved:
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.totalApprovedLeave)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Pending Leave:
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.totalPendingLeave)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Leave Remaining:
+        </th>
+        <td>
+            @Html.DisplayFor(model=> model.remainingLeave)
+        </td>
+    </tr>
+
+</table>
+
+<br />
+<br />
+<h3>Leave Approved</h3>
+<table class="table">
+    <tr>
+        <th>
+            Start Date
+        </th>
+        <th>End Date</th>
+        <th>Total Leave</th>
+
+    </tr>
+    @foreach (var item in Model.ApprovedLeavesList)
+    {
+        <tr>
+            <td>@item.LeaveStartDate</td>
+            <td>@item.LeaveEndDate</td>
+            <td>@item.TotalLeaveAuthorized</td>
+        </tr>
+    }
+
+
+
+</table>
+
+<br />
+<br />
+<h3>Leave Pending</h3>
+<table class="table">
+    <tr>
+        <th>
+            Start Date
+        </th>
+        <th>End Date</th>
+        <th>Total Leave</th>
+
+    </tr>
+    @foreach (var item in Model.PendingLeaveList)
+    {
+
+
+        <tr>
+            <td>@item.LeaveStartDate</td>
+            <td>@item.LeaveEndDate</td>
+            <td>@item.TotalLeaveAuthorized</td>
+        </tr>
+
+    }
+
+
+
+</table>

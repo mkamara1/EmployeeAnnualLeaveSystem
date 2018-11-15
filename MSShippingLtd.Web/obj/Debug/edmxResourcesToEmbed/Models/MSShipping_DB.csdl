@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MS_ShippingLimited_DevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AnnualLeave">
+    <Key>
+      <PropertyRef Name="LeaveID" />
+    </Key>
+    <Property Name="LeaveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee_Id" Type="Int32" />
+    <Property Name="EmployeeStartDate" Type="DateTime" Precision="3" />
+    <Property Name="EmployeeEndDate" Type="DateTime" Precision="3" />
+    <Property Name="EmployeeManager_Id" Type="Int32" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_AnnualLeave_AnnualLeave" FromRole="AnnualLeave" ToRole="Employee" />
+    <NavigationProperty Name="Employee1" Relationship="Self.FK_AnnualLeave_Employee" FromRole="AnnualLeave" ToRole="Employee" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="TotalLeavePerYear" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Year" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AnnualLeaves" Relationship="Self.FK_AnnualLeave_AnnualLeave" FromRole="Employee" ToRole="AnnualLeave" />
+    <NavigationProperty Name="AnnualLeaves1" Relationship="Self.FK_AnnualLeave_Employee" FromRole="Employee" ToRole="AnnualLeave" />
+    <NavigationProperty Name="EmployeeAddresses" Relationship="Self.FK_EmployeeAddress_EmployeeAddress" FromRole="Employee" ToRole="EmployeeAddress" />
+    <NavigationProperty Name="EmployeeLeaves" Relationship="Self.FK_EmployeeLeave_Employee" FromRole="Employee" ToRole="EmployeeLeave" />
+    <NavigationProperty Name="EmployeeLeaves1" Relationship="Self.FK_EmployeeLeave_Employee1" FromRole="Employee" ToRole="EmployeeLeave" />
+    <NavigationProperty Name="EmployeeRoles" Relationship="MS_ShippingLimited_DevModel.FK_EmployeeRole_Employee" FromRole="Employee" ToRole="EmployeeRole" />
+    <NavigationProperty Name="EmployeeLeaves11" Relationship="MS_ShippingLimited_DevModel.FK_EmployeeLeave_Employee11" FromRole="Employee" ToRole="EmployeeLeave" />
+  </EntityType>
+  <EntityType Name="EmployeeAddress">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostCode" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+    <Property Name="Employe_Id" Type="Int32" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_EmployeeAddress_EmployeeAddress" FromRole="EmployeeAddress" ToRole="Employee" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="EmployeeLeave">
+    <Key>
+      <PropertyRef Name="EmployeeLeaveId" />
+    </Key>
+    <Property Name="EmployeeLeaveId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LeaveStartDate" Type="DateTime" Precision="3" />
+    <Property Name="LeaveEndDate" Type="DateTime" Precision="3" />
+    <Property Name="LeaveApproved" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="LeavePending" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="LeaveStatus" Type="Boolean" />
+    <Property Name="AdditionInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_Id" Type="Int32" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_EmployeeLeave_Employee" FromRole="EmployeeLeave" ToRole="Employee" />
+    <NavigationProperty Name="Employee1" Relationship="Self.FK_EmployeeLeave_Employee1" FromRole="EmployeeLeave" ToRole="Employee" />
+    <Property Name="LeaveAuthorized" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AuthorizedBy" Type="Int32" />
+    <Property Name="AuthorizedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Employee11" Relationship="MS_ShippingLimited_DevModel.FK_EmployeeLeave_Employee11" FromRole="EmployeeLeave" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="EmployeeRole">
+    <Key>
+      <PropertyRef Name="EmployeeRoleID" />
+    </Key>
+    <Property Name="EmployeeRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee_Id" Type="Int32" />
+    <Property Name="Role_Id" Type="Int32" />
+    <NavigationProperty Name="Employee" Relationship="MS_ShippingLimited_DevModel.FK_EmployeeRole_Employee" FromRole="EmployeeRole" ToRole="Employee" />
+    <NavigationProperty Name="Role" Relationship="MS_ShippingLimited_DevModel.FK_EmployeeRole_Role" FromRole="EmployeeRole" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EmployeeRoles" Relationship="MS_ShippingLimited_DevModel.FK_EmployeeRole_Role" FromRole="Role" ToRole="EmployeeRole" />
+  </EntityType>
+  <Association Name="FK_AnnualLeave_AnnualLeave">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="AnnualLeave" Type="Self.AnnualLeave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="AnnualLeave">
+        <PropertyRef Name="Employee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnnualLeave_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="AnnualLeave" Type="Self.AnnualLeave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="AnnualLeave">
+        <PropertyRef Name="EmployeeManager_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeAddress_EmployeeAddress">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="EmployeeAddress" Type="Self.EmployeeAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="EmployeeAddress">
+        <PropertyRef Name="Employe_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeLeave_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="EmployeeLeave" Type="Self.EmployeeLeave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="EmployeeLeave">
+        <PropertyRef Name="Employee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeLeave_Employee1">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="EmployeeLeave" Type="Self.EmployeeLeave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="EmployeeLeave">
+        <PropertyRef Name="LeaveApprovedBy_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MS_ShippingLimited_DevEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AnnualLeaves" EntityType="Self.AnnualLeave" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="EmployeeAddresses" EntityType="Self.EmployeeAddress" />
+    <EntitySet Name="EmployeeLeaves" EntityType="Self.EmployeeLeave" />
+    <EntitySet Name="EmployeeRoles" EntityType="Self.EmployeeRole" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <AssociationSet Name="FK_AnnualLeave_AnnualLeave" Association="Self.FK_AnnualLeave_AnnualLeave">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="AnnualLeave" EntitySet="AnnualLeaves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnnualLeave_Employee" Association="Self.FK_AnnualLeave_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="AnnualLeave" EntitySet="AnnualLeaves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeAddress_EmployeeAddress" Association="Self.FK_EmployeeAddress_EmployeeAddress">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmployeeAddress" EntitySet="EmployeeAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeLeave_Employee" Association="Self.FK_EmployeeLeave_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmployeeLeave" EntitySet="EmployeeLeaves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeLeave_Employee1" Association="Self.FK_EmployeeLeave_Employee1">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmployeeLeave" EntitySet="EmployeeLeaves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeRole_Employee" Association="MS_ShippingLimited_DevModel.FK_EmployeeRole_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmployeeRole" EntitySet="EmployeeRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeRole_Role" Association="MS_ShippingLimited_DevModel.FK_EmployeeRole_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="EmployeeRole" EntitySet="EmployeeRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeLeave_Employee11" Association="MS_ShippingLimited_DevModel.FK_EmployeeLeave_Employee11">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmployeeLeave" EntitySet="EmployeeLeaves" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_EmployeeRole_Employee">
+    <End Type="MS_ShippingLimited_DevModel.Employee" Role="Employee" Multiplicity="0..1" />
+    <End Type="MS_ShippingLimited_DevModel.EmployeeRole" Role="EmployeeRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="EmployeeRole">
+        <PropertyRef Name="Employee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeRole_Role">
+    <End Type="MS_ShippingLimited_DevModel.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="MS_ShippingLimited_DevModel.EmployeeRole" Role="EmployeeRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="EmployeeRole">
+        <PropertyRef Name="Role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeLeave_Employee11">
+    <End Type="MS_ShippingLimited_DevModel.Employee" Role="Employee" Multiplicity="0..1" />
+    <End Type="MS_ShippingLimited_DevModel.EmployeeLeave" Role="EmployeeLeave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="EmployeeLeave">
+        <PropertyRef Name="AuthorizedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

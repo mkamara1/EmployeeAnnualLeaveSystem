@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bde176c4c91141c687429583af94b6ac" Name="Diagram1">
+        <EntityTypeShape EntityType="MS_ShippingLimited_DevModel.AnnualLeave" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MS_ShippingLimited_DevModel.Employee" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MS_ShippingLimited_DevModel.EmployeeAddress" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="MS_ShippingLimited_DevModel.EmployeeLeave" Width="2.375" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MS_ShippingLimited_DevModel.EmployeeRole" Width="1.5" PointX="6" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MS_ShippingLimited_DevModel.Role" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="MS_ShippingLimited_DevModel.FK_AnnualLeave_AnnualLeave" ManuallyRouted="false" />
+        <AssociationConnector Association="MS_ShippingLimited_DevModel.FK_AnnualLeave_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="MS_ShippingLimited_DevModel.FK_EmployeeAddress_EmployeeAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="MS_ShippingLimited_DevModel.FK_EmployeeLeave_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="MS_ShippingLimited_DevModel.FK_EmployeeLeave_Employee1" ManuallyRouted="false" />
+        <AssociationConnector Association="MS_ShippingLimited_DevModel.FK_EmployeeRole_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="MS_ShippingLimited_DevModel.FK_EmployeeRole_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
