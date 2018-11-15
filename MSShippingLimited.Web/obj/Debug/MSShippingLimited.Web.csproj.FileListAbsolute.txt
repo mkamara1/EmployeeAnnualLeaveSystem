@@ -1,7 +1,0 @@
-C:\Users\Med\source\repos\Marie Sinneh Shipping Limited\MSShippingLimited\MSShippingLimited.Web\bin\MSShippingLimited.Web.dll.config
-C:\Users\Med\source\repos\Marie Sinneh Shipping Limited\MSShippingLimited\MSShippingLimited.Web\bin\MSShippingLimited.Web.dll
-C:\Users\Med\source\repos\Marie Sinneh Shipping Limited\MSShippingLimited\MSShippingLimited.Web\bin\MSShippingLimited.Web.pdb
-C:\Users\Med\source\repos\Marie Sinneh Shipping Limited\MSShippingLimited\MSShippingLimited.Web\obj\Debug\MSShippingLimited.Web.csprojAssemblyReference.cache
-C:\Users\Med\source\repos\Marie Sinneh Shipping Limited\MSShippingLimited\MSShippingLimited.Web\obj\Debug\MSShippingLimited.Web.csproj.CoreCompileInputs.cache
-C:\Users\Med\source\repos\Marie Sinneh Shipping Limited\MSShippingLimited\MSShippingLimited.Web\obj\Debug\MSShippingLimited.Web.dll
-C:\Users\Med\source\repos\Marie Sinneh Shipping Limited\MSShippingLimited\MSShippingLimited.Web\obj\Debug\MSShippingLimited.Web.pdb
